@@ -1,0 +1,14 @@
+services:
+  percona:
+    platform: linux/amd64
+    build:
+      context: ./percona
+    environment:
+      MYSQL_DATABASE: 'l81'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin123'
+      MYSQL_ROOT_PASSWORD: 'root123'
+    volumes:
+      - ./data/percona:/var/lib/mysql
+    ports:
+      - "3308:3306"
